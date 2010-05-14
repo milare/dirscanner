@@ -7,7 +7,7 @@ require 'lib/dirscanner'
 require 'pp'
 
 # Checks for updates in the input dir
-Dirscanner.scan( "/home/bruno/Projects/marta/dados_abril/new_punch/" )
+Dirscanner.scan( "." )
 
 # List of new ou update needed files
 files = Dirscanner.list_files
