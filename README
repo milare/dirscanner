@@ -1,9 +1,33 @@
-== README ==
+** README **
+author: Bruno Milare ( milare @ gmail . com)
+
 
 == INSTALLATION ==
 Just install the gem, by doing:
 gem install dirscanner-x.x.x.gem
 
 or downloading the source at:
+git clone git@github.com:milare/dirscanner.git
+
+
+== USING ==
+After installing, require dirscanner:
+
+require "dirscanner"
+
+Every time you need to scan a directory just call:
+
+Dirscanner.scan( "dir_path" )
+
+To check the files status, by example:
+files = Dirscanner.list_files
+
+where files is a hash of arrays with the keys:
+- files["new"]
+- files["updated"]
+- files["kept"]
+
+The values are arrays with the files full path.
+Check out the demo.rb.
 
 
