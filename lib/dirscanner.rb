@@ -14,10 +14,10 @@ ProjectPath =  File.expand_path(File.join(File.dirname(__FILE__), "../..")) << "
 # Maintenance file path (relative)
 # This file is responsible to keep track of new and out of date files.
 # Do not change this path, it is relative and does not need to be changed.
-DirMaintenance = "lib/"
+DirMaintenance = "./"
 
 # File to keep track of updates and new files.
-FilenameLastChecked = "scanner_tracking"
+FilenameLastChecked = ".tracking"
 
 
 class Dirscanner
@@ -28,11 +28,20 @@ class Dirscanner
   # [Method] scan_dir
   # [Desc] Keeps track of files, do all tasks, kind of singleton method
   def Dirscanner.scan( dir )
+   
+    if File.exists? dir 
+       @@dir = dir if dir
     
-    @@dir = dir if dir
-    
-    open_check_file
-    check_files
+       open_check_file
+
+       check_files
+
+       list_files
+    else
+       puts "Dirscanner::No such file or directory."
+    end
+
+
   end
   
   
@@ -156,6 +165,8 @@ class Dirscanner
       end
     end
     
+    FilesHandler.instance.clear
+
     return @@aval_files_str
   end
   
@@ -180,6 +191,10 @@ class FilesHandler
   # [Desc] Return available files
   def aval_files
     @@aval_files
+  end
+
+  def clear
+    @@aval_files = []
   end
   
 

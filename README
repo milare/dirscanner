@@ -17,10 +17,7 @@ require "dirscanner"
 
 Every time you need to scan a directory just call:
 
-Dirscanner.scan( "dir_path" )
-
-To check the files statuses, by example, do:
-files = Dirscanner.list_files
+files = Dirscanner.scan( "dir_path" )
 
 where files is a hash of arrays with the keys:
 - files["new"]

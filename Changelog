@@ -2,3 +2,6 @@
 - First version
 - Scans a directory and generates a hash with the three possible states of 
 a file in a directory (new, updated or kept).
+-> 0.0.2 (17.05.2010)
+- Scans a dir with only one call
+- Tracking file is now hidden
